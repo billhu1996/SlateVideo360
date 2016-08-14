@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name             = "SlateVideo360"
+  s.name             = "SlateVideo360ForEdx"
   s.version          = "0.1.4"
   s.summary          = "iOS VR Player support 360 Degree Video and Google Cardboard."
 
@@ -7,10 +7,10 @@ Pod::Spec.new do |s|
                         Open Source iOS VR Player support 360 Degree Video and Google Cardboard.
                        DESC
 
-  s.homepage         = "https://github.com/islate/SlateVideo360"
+  s.homepage         = "https://github.com/billhu1996/SlateVideo360ForEdx"
   s.license          = 'Apache 2.0'
   s.author           = { "林溢泽" => "linyize@gmail.com" }
-  s.source           = { :git => "https://github.com/islate/SlateVideo360.git", :tag => s.version.to_s }
+  s.source           = { :git => "https://github.com/billhu1996/SlateVideo360ForEdx.git", :tag => s.version.to_s }
 
   s.ios.deployment_target = '7.0'
 
