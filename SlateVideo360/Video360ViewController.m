@@ -16,6 +16,7 @@
 }
 
 @property (strong, nonatomic) IBOutlet UIButton *cardboardButton;
+@property (strong, nonatomic) IBOutlet UIButton *fullScreenButton;
 @property (nonatomic, strong) CardboardViewController *cardboardVC;
 
 @end
@@ -80,6 +81,9 @@
     }
 }
 
+- (IBAction)fullScreenButtonTouched:(id)sender {
+    [_delegate fullScreen];
+}
 #pragma mark cardboard view
 
 - (void)configureCardboardView

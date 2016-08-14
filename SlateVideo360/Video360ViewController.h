@@ -7,9 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
-
 #import "HTY360PlayerVC.h"
 
+@protocol VideoPlayerDelegate <NSObject>
+@required
+- (void)fullScreen;
+
+@end
+
 @interface Video360ViewController : HTY360PlayerVC
+
+@property (nonatomic, weak, nullable) id <VideoPlayerDelegate>delegate;
 
 @end
