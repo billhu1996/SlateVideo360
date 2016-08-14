@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="Video360ViewController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HTY360PlayerVC">
             <connections>
                 <outlet property="backButton" destination="XuQ-LV-4yQ" id="SFn-6d-4o2"/>
                 <outlet property="cardboardButton" destination="VkL-Ap-VjG" id="KUS-zw-8NM"/>
                 <outlet property="fullScreenButton" destination="s57-it-IMb" id="lbX-ys-wvc"/>
                 <outlet property="gyroButton" destination="DR2-sX-Ecz" id="2WI-6m-yy8"/>
                 <outlet property="playButton" destination="3Pr-21-8dz" id="Nom-Nr-PNu"/>
-                <outlet property="playerControlBackgroundView" destination="utK-WR-lKf" id="mZV-sx-MoY"/>
+                <outlet property="playerControlBackgroundView" destination="coL-GW-nZX" id="eZ5-a2-Cet"/>
                 <outlet property="progressSlider" destination="UtA-4n-mGO" id="93H-Vc-Wi3"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -21,111 +22,123 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="utK-WR-lKf" userLabel="Play Control Background View">
-                    <rect key="frame" x="0.0" y="550" width="600" height="50"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="coL-GW-nZX">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XuQ-LV-4yQ" userLabel="Back Button">
-                            <rect key="frame" x="8" y="3" width="44" height="44"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Pr-21-8dz" userLabel="Play Button">
+                            <rect key="frame" x="278" y="278" width="44" height="44"/>
+                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="44" id="Pun-TT-aTX"/>
-                                <constraint firstAttribute="width" constant="44" id="ml2-kb-T4Z"/>
+                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="kef-Ns-Ngg"/>
+                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="44" id="u5O-QC-e4S"/>
                             </constraints>
-                            <state key="normal" image="back"/>
+                            <state key="normal" image="playback_play"/>
                             <connections>
-                                <action selector="backButtonTouched:" destination="-1" eventType="touchUpInside" id="8Jr-Z3-ZJA"/>
+                                <action selector="playButtonTouched:" destination="-1" eventType="touchUpInside" id="HzQ-fF-pHT"/>
                             </connections>
                         </button>
-                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DR2-sX-Ecz" userLabel="Gyro Button">
-                            <rect key="frame" x="505" y="3" width="87" height="44"/>
+                        <view alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="utK-WR-lKf" userLabel="Play Control Background View">
+                            <rect key="frame" x="0.0" y="550" width="600" height="50"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XuQ-LV-4yQ" userLabel="Back Button">
+                                    <rect key="frame" x="8" y="3" width="44" height="44"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="44" id="Pun-TT-aTX"/>
+                                        <constraint firstAttribute="width" constant="44" id="ml2-kb-T4Z"/>
+                                    </constraints>
+                                    <state key="normal" image="back"/>
+                                    <connections>
+                                        <action selector="backButtonTouched:" destination="-1" eventType="touchUpInside" id="8Jr-Z3-ZJA"/>
+                                    </connections>
+                                </button>
+                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DR2-sX-Ecz" userLabel="Gyro Button">
+                                    <rect key="frame" x="505" y="3" width="87" height="44"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="87" id="eSe-3z-9io"/>
+                                        <constraint firstAttribute="height" constant="44" id="woa-gr-Ze6"/>
+                                    </constraints>
+                                    <state key="normal" image="924E0631-FB3E-46AC-BC99-3A77162221B7"/>
+                                    <connections>
+                                        <action selector="gyroButtonTouched:" destination="-1" eventType="touchUpInside" id="vH0-KG-9yS"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VkL-Ap-VjG" userLabel="Cardboard Button">
+                                    <rect key="frame" x="454" y="3" width="87" height="44"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="87" id="Yfh-y4-r4l"/>
+                                        <constraint firstAttribute="height" constant="44" id="zg2-dC-iTr"/>
+                                    </constraints>
+                                    <state key="normal" image="cardboard_unselected"/>
+                                    <state key="selected" image="cardboard"/>
+                                    <connections>
+                                        <action selector="cardboardButtonTouched:" destination="-1" eventType="touchUpInside" id="ekc-QX-7fS"/>
+                                    </connections>
+                                </button>
+                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="UtA-4n-mGO">
+                                    <rect key="frame" x="58" y="10" width="390" height="31"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="30" id="cX1-h4-zaD"/>
+                                    </constraints>
+                                    <color key="minimumTrackTintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="thumbTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    <connections>
+                                        <action selector="beginScrubbing:" destination="-1" eventType="touchDown" id="a0H-6e-phP"/>
+                                        <action selector="endScrubbing:" destination="-1" eventType="touchUpInside" id="jxg-tt-9pt"/>
+                                        <action selector="endScrubbing:" destination="-1" eventType="touchUpOutside" id="pST-la-qL1"/>
+                                        <action selector="scrub:" destination="-1" eventType="valueChanged" id="LgI-27-uTS"/>
+                                    </connections>
+                                </slider>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s57-it-IMb" userLabel="Full Screen Button">
+                                    <rect key="frame" x="548" y="14" width="44" height="22"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="22" id="EAW-fd-LVx"/>
+                                        <constraint firstAttribute="width" constant="44" id="HFH-K3-i5w"/>
+                                    </constraints>
+                                    <state key="normal" image="move"/>
+                                    <connections>
+                                        <action selector="fullScreenButtonTouched:" destination="-1" eventType="touchUpInside" id="EBH-C3-Ag1"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="87" id="eSe-3z-9io"/>
-                                <constraint firstAttribute="height" constant="44" id="woa-gr-Ze6"/>
+                                <constraint firstItem="VkL-Ap-VjG" firstAttribute="centerY" secondItem="utK-WR-lKf" secondAttribute="centerY" id="4NQ-6s-Jzn"/>
+                                <constraint firstItem="XuQ-LV-4yQ" firstAttribute="leading" secondItem="utK-WR-lKf" secondAttribute="leading" constant="8" id="8bF-6B-2vv"/>
+                                <constraint firstItem="VkL-Ap-VjG" firstAttribute="leading" secondItem="UtA-4n-mGO" secondAttribute="trailing" constant="8" id="8p2-WU-0Lz"/>
+                                <constraint firstItem="UtA-4n-mGO" firstAttribute="leading" secondItem="XuQ-LV-4yQ" secondAttribute="trailing" constant="8" id="C39-v6-z8q"/>
+                                <constraint firstAttribute="trailing" secondItem="s57-it-IMb" secondAttribute="trailing" constant="8" id="IJi-zN-y9B"/>
+                                <constraint firstAttribute="height" constant="50" id="UAs-oO-mVR"/>
+                                <constraint firstItem="DR2-sX-Ecz" firstAttribute="centerY" secondItem="utK-WR-lKf" secondAttribute="centerY" id="d2F-Wl-VFM"/>
+                                <constraint firstItem="s57-it-IMb" firstAttribute="centerY" secondItem="utK-WR-lKf" secondAttribute="centerY" id="iE9-If-RNE"/>
+                                <constraint firstAttribute="trailing" secondItem="DR2-sX-Ecz" secondAttribute="trailing" constant="8" id="iUo-sZ-4lt"/>
+                                <constraint firstItem="s57-it-IMb" firstAttribute="leading" secondItem="VkL-Ap-VjG" secondAttribute="trailing" constant="7" id="ila-MU-Z8X"/>
+                                <constraint firstItem="UtA-4n-mGO" firstAttribute="centerY" secondItem="utK-WR-lKf" secondAttribute="centerY" id="mit-L1-KfA"/>
+                                <constraint firstItem="XuQ-LV-4yQ" firstAttribute="centerY" secondItem="utK-WR-lKf" secondAttribute="centerY" id="xi6-1p-CE1"/>
                             </constraints>
-                            <state key="normal" image="8B11696B-2C31-4C3B-ACD3-0D1189185831"/>
-                            <connections>
-                                <action selector="gyroButtonTouched:" destination="-1" eventType="touchUpInside" id="vH0-KG-9yS"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VkL-Ap-VjG" userLabel="Cardboard Button">
-                            <rect key="frame" x="454" y="3" width="87" height="44"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="87" id="Yfh-y4-r4l"/>
-                                <constraint firstAttribute="height" constant="44" id="zg2-dC-iTr"/>
-                            </constraints>
-                            <state key="normal" image="cardboard_unselected"/>
-                            <state key="selected" image="cardboard"/>
-                            <connections>
-                                <action selector="cardboardButtonTouched:" destination="-1" eventType="touchUpInside" id="ekc-QX-7fS"/>
-                            </connections>
-                        </button>
-                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="UtA-4n-mGO">
-                            <rect key="frame" x="58" y="10" width="390" height="31"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="30" id="cX1-h4-zaD"/>
-                            </constraints>
-                            <color key="minimumTrackTintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                            <color key="thumbTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                            <connections>
-                                <action selector="beginScrubbing:" destination="-1" eventType="touchDown" id="a0H-6e-phP"/>
-                                <action selector="endScrubbing:" destination="-1" eventType="touchUpInside" id="jxg-tt-9pt"/>
-                                <action selector="endScrubbing:" destination="-1" eventType="touchUpOutside" id="pST-la-qL1"/>
-                                <action selector="scrub:" destination="-1" eventType="valueChanged" id="LgI-27-uTS"/>
-                            </connections>
-                        </slider>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s57-it-IMb" userLabel="Full Screen Button">
-                            <rect key="frame" x="548" y="14" width="44" height="22"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="22" id="EAW-fd-LVx"/>
-                                <constraint firstAttribute="width" constant="44" id="HFH-K3-i5w"/>
-                            </constraints>
-                            <state key="normal" image="move"/>
-                            <connections>
-                                <action selector="fullScreenButtonTouched:" destination="-1" eventType="touchUpInside" id="EBH-C3-Ag1"/>
-                            </connections>
-                        </button>
+                        </view>
                     </subviews>
-                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstItem="VkL-Ap-VjG" firstAttribute="centerY" secondItem="utK-WR-lKf" secondAttribute="centerY" id="4NQ-6s-Jzn"/>
-                        <constraint firstItem="XuQ-LV-4yQ" firstAttribute="leading" secondItem="utK-WR-lKf" secondAttribute="leading" constant="8" id="8bF-6B-2vv"/>
-                        <constraint firstItem="VkL-Ap-VjG" firstAttribute="leading" secondItem="UtA-4n-mGO" secondAttribute="trailing" constant="8" id="8p2-WU-0Lz"/>
-                        <constraint firstItem="UtA-4n-mGO" firstAttribute="leading" secondItem="XuQ-LV-4yQ" secondAttribute="trailing" constant="8" id="C39-v6-z8q"/>
-                        <constraint firstAttribute="trailing" secondItem="s57-it-IMb" secondAttribute="trailing" constant="8" id="IJi-zN-y9B"/>
-                        <constraint firstAttribute="height" constant="50" id="UAs-oO-mVR"/>
-                        <constraint firstItem="DR2-sX-Ecz" firstAttribute="centerY" secondItem="utK-WR-lKf" secondAttribute="centerY" id="d2F-Wl-VFM"/>
-                        <constraint firstItem="s57-it-IMb" firstAttribute="centerY" secondItem="utK-WR-lKf" secondAttribute="centerY" id="iE9-If-RNE"/>
-                        <constraint firstAttribute="trailing" secondItem="DR2-sX-Ecz" secondAttribute="trailing" constant="8" id="iUo-sZ-4lt"/>
-                        <constraint firstItem="s57-it-IMb" firstAttribute="leading" secondItem="VkL-Ap-VjG" secondAttribute="trailing" constant="7" id="ila-MU-Z8X"/>
-                        <constraint firstItem="UtA-4n-mGO" firstAttribute="centerY" secondItem="utK-WR-lKf" secondAttribute="centerY" id="mit-L1-KfA"/>
-                        <constraint firstItem="XuQ-LV-4yQ" firstAttribute="centerY" secondItem="utK-WR-lKf" secondAttribute="centerY" id="xi6-1p-CE1"/>
+                        <constraint firstItem="3Pr-21-8dz" firstAttribute="centerX" secondItem="coL-GW-nZX" secondAttribute="centerX" id="L55-S2-9Js"/>
+                        <constraint firstAttribute="trailing" secondItem="utK-WR-lKf" secondAttribute="trailing" id="MaM-14-Jrp"/>
+                        <constraint firstItem="3Pr-21-8dz" firstAttribute="centerY" secondItem="coL-GW-nZX" secondAttribute="centerY" id="WbL-Ct-6Tw"/>
+                        <constraint firstAttribute="bottom" secondItem="utK-WR-lKf" secondAttribute="bottom" id="bqC-pw-sbD"/>
+                        <constraint firstItem="utK-WR-lKf" firstAttribute="leading" secondItem="coL-GW-nZX" secondAttribute="leading" id="cjm-BN-92S"/>
                     </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Pr-21-8dz" userLabel="Play Button">
-                    <rect key="frame" x="278" y="278" width="44" height="44"/>
-                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="kef-Ns-Ngg"/>
-                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="44" id="u5O-QC-e4S"/>
-                    </constraints>
-                    <state key="normal" image="playback_play"/>
-                    <connections>
-                        <action selector="playButtonTouched:" destination="-1" eventType="touchUpInside" id="HzQ-fF-pHT"/>
-                    </connections>
-                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="3Pr-21-8dz" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="FMz-x7-hVV"/>
-                <constraint firstItem="3Pr-21-8dz" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="Ktb-iT-SHw"/>
-                <constraint firstAttribute="bottom" secondItem="utK-WR-lKf" secondAttribute="bottom" id="M8X-Dv-5Mh"/>
-                <constraint firstItem="utK-WR-lKf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="agq-Yy-Nsi"/>
-                <constraint firstAttribute="trailing" secondItem="utK-WR-lKf" secondAttribute="trailing" id="jNk-tJ-Xc4"/>
-                <constraint firstItem="utK-WR-lKf" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="mr7-p9-MlX"/>
+                <constraint firstItem="coL-GW-nZX" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="1fb-oI-Yvh"/>
+                <constraint firstAttribute="trailing" secondItem="coL-GW-nZX" secondAttribute="trailing" id="PYd-q1-epJ"/>
+                <constraint firstItem="coL-GW-nZX" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="hi8-pf-4mC"/>
+                <constraint firstAttribute="bottom" secondItem="coL-GW-nZX" secondAttribute="bottom" id="uZx-Gn-APg"/>
             </constraints>
         </view>
     </objects>
     <resources>
-        <image name="8B11696B-2C31-4C3B-ACD3-0D1189185831" width="87" height="44">
+        <image name="924E0631-FB3E-46AC-BC99-3A77162221B7" width="87" height="44">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
